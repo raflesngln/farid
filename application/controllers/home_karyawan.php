@@ -145,10 +145,11 @@ function materi(){
 		
         $data['title']='<i class="fa fa-envelope"></i> Message';
 		$data['link']='<a href="'.base_url().'Home_karyawan/view_message">Data Pesan</a>';
-		$data['list']=$this->my_model->getDataMessage("a.tgl_kirim,a.pesan,a.id_pengirim,a.id_penerima,b.nama AS penerima,c.nama as pengirim,b.picture as gbr1,c.picture as gbr2","pesan a",
+		$data['list']=$this->my_model->getDataMessage("a.id_pesan,a.tgl_kirim,a.pesan,a.id_pengirim,a.id_penerima,b.nama AS penerima,c.nama as pengirim,b.picture as gbr1,c.picture as gbr2","pesan a",
 				      "INNER JOIN karyawan b ON a.id_penerima=b.nik 
 					   LEFT JOIN karyawan c ON a.id_pengirim=c.nik 
-					   WHERE a.id_penerima='$penerima' AND a.id_pengirim='$pengirim' OR a.id_penerima='$pengirim' AND a.id_pengirim='$penerima'
+					   WHERE a.aktif='Y' AND a.id_penerima='$penerima' AND a.id_pengirim='$pengirim' OR a.aktif='Y' AND a.id_penerima='$pengirim' AND a.id_pengirim='$penerima'
+					   
 					   ORDER BY a.id_pesan asc ");
 					  
 		$tot_hal = $this->my_model->hitung_isi_tabel('*','pesan a',"INNER JOIN karyawan b on a.id_penerima=b.nik 
@@ -208,6 +209,33 @@ function materi(){
 	}
 
  function sendMessage(){
+	 $pesan=$this->input->post('pesan');
+	 $id_session=$this->session->userdata('nikuser');
+	 
+	 $id_pengirim=$this->input->post('id_pengirim');
+	 $id_penerima=$this->input->post('id_penerima');
+	if($id_session==$id_pengirim){
+		$penerima=$id_penerima;
+	} else {
+		$penerima=$id_pengirim;
+	}
+	 
+	 $data=array(
+	 'id_pengirim'=>$id_session,
+	 'id_penerima'=>$penerima,
+	 'pesan'=>$pesan,
+	 'tgl_kirim'=>date('Y-m-d H:i:s'),
+	 'pesan'=>$pesan,
+	 'dilihat'=>'N',
+	 
+	 );
+	$save=$this->my_model->insert('pesan',$data);
+	$this->session->set_flashdata('kode_flash', $penerima);	
+	 redirect('home_karyawan/detail_message');
+	 
+ }
+
+function deletemessage(){
 	 $pesan=$this->input->post('pesan');
 	 $id_session=$this->session->userdata('nikuser');
 	 

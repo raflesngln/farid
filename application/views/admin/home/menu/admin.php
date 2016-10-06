@@ -16,7 +16,7 @@
 
 
   <li class="header">REPORT</li> 
-       <li><a href="<?php echo base_url();?>C_topic"><i class="fa fa-list-alt"></i> Employee Report</a></li>             
+       <li><a href="<?php echo base_url();?>report/karyawan_report"><i class="fa fa-list-alt"></i> Employee Report</a></li>             
       <li><a href="<?php echo base_url();?>C_department"><i class="fa fa-list-alt"></i> Discuss Report</a></li>
 
 <li class="header">ADMINISTRATOR MANAGE</li>
