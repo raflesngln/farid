@@ -5,7 +5,7 @@
           <a href="<?php echo base_url();?>Home_karyawan/view_message">
             <i class="fa fa-envelope"></i> <span> Message</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-red">3</small>
+              <small class="label pull-right bg-red">&nbsp;</small>
             </span>
           </a>
         </li>    
@@ -14,7 +14,7 @@
           <a href="<?php echo base_url();?>Home_karyawan/karyawan">
             <i class="fa fa-users"></i> <span>Karyawan</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-red">3</small>
+              <small class="label pull-right bg-red">&nbsp;</small>
             </span>
           </a>
         </li>

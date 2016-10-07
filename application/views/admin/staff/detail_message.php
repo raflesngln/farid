@@ -33,7 +33,7 @@
                   <!-- /.direct-chat-info -->
                   <img class="direct-chat-img" src="<?php echo base_url();?>asset/images/karyawan/<?php echo $row->gbr2;?>" alt="Message User Image"><!-- /.direct-chat-img -->
                   <div class="direct-chat-text">
-     <p><a href="<?php echo base_url();?>home_karyawan/deletemessage/<?php echo $row->id_pesan ;?>"><i class="fa fa-times bg-red"></i></a></p>
+     <p><a onclick="return confirm('Yakin hapus pesan ?');" href="<?php echo base_url();?>home_karyawan/deletemessage/<?php echo $row->id_pesan.'.'.$row->id_penerima.'.'.$row->id_pengirim ;?>"><i class="fa fa-times bg-red"></i></a></p>
      <p><em><?php echo date('d-M-Y ( H:i:s )',strtotime($row->tgl_kirim));?></em></p>
 
      <p><?php echo $row->pesan;?>.</p>

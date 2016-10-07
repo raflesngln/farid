@@ -236,28 +236,20 @@ function materi(){
  }
 
 function deletemessage(){
-	 $pesan=$this->input->post('pesan');
 	 $id_session=$this->session->userdata('nikuser');
-	 
-	 $id_pengirim=$this->input->post('id_pengirim');
-	 $id_penerima=$this->input->post('id_penerima');
+	 $pecah=explode('.',$this->uri->segment(3));
+	 $idpesan=$pecah[0];
+	 $id_penerima=$pecah[1];
+	 $id_pengirim=$pecah[2];
 	if($id_session==$id_pengirim){
 		$penerima=$id_penerima;
 	} else {
 		$penerima=$id_pengirim;
 	}
 	 
-	 $data=array(
-	 'id_pengirim'=>$id_session,
-	 'id_penerima'=>$penerima,
-	 'pesan'=>$pesan,
-	 'tgl_kirim'=>date('Y-m-d H:i:s'),
-	 'pesan'=>$pesan,
-	 'dilihat'=>'N',
-	 
-	 );
-	$save=$this->my_model->insert('pesan',$data);
-	$this->session->set_flashdata('kode_flash', $penerima);	
+  	$delete=$this->my_model->delete_data('pesan','id_pesan',$idpesan);
+  
+	 $this->session->set_flashdata('kode_flash', $penerima);	
 	 redirect('home_karyawan/detail_message');
 	 
  }

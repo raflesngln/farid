@@ -1,11 +1,18 @@
 <ul class="sidebar-menu">
 <li class="header">MAIN MENU</li>
-    
+         <li>
+          <a href="<?php echo base_url();?>Home_karyawan/view_message">
+            <i class="fa fa-envelope"></i> <span> Message</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-red">&nbsp;</small>
+            </span>
+          </a>
+        </li>        
         <li>
           <a href="<?php echo base_url();?>karyawan">
             <i class="fa fa-users"></i> <span>Karyawan</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-red">3</small>
+              <small class="label pull-right bg-red">&nbsp;</small>
             </span>
           </a>
         </li>
@@ -17,7 +24,7 @@
 
   <li class="header">REPORT</li> 
        <li><a href="<?php echo base_url();?>report/karyawan_report"><i class="fa fa-list-alt"></i> Employee Report</a></li>             
-      <li><a href="<?php echo base_url();?>C_department"><i class="fa fa-list-alt"></i> Discuss Report</a></li>
+      <li><a href="<?php echo base_url();?>report/discuss_report"><i class="fa fa-list-alt"></i> Discuss Report</a></li>
 
 <li class="header">ADMINISTRATOR MANAGE</li>
 
