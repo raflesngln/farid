@@ -23,6 +23,7 @@
 
 
  <li><a href="<?php echo base_url();?>report/karyawan_report"><i class="fa fa-list-alt"></i> Employee Report</a></li> 
+       <li><a href="<?php echo base_url();?>report/discuss_report"><i class="fa fa-list-alt"></i> Discuss Report</a></li>
 <li class="header">ADMINISTRATOR MANAGE</li>
  <li><a href="<?php echo base_url();?>home_karyawan/form_setting"><i class="fa fa-cog"></i> &nbsp;   Setting profile</a></li>
         </li>
